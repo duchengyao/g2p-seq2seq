@@ -23,10 +23,10 @@ You can install tensorflow with the following command:
 sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.0-cp27-none-linux_x86_64.whl
 ```
 
-The package itself uses setuptools, so you can follow standard installation process:
+~~The package itself uses setuptools, so you can follow standard installation process:~~
 
 ```
-sudo python setup.py install
+~~sudo python setup.py install~~
 ```
 
 You can also run the tests
@@ -35,7 +35,7 @@ You can also run the tests
 python setup.py test
 ```
 
-The runnable script `g2p-seq2seq` is installed in  `/usr/local/bin` folder by default (you can adjust it with `setup.py` options if needed) . You need to make sure you have this folder included in your `PATH` so you can run this script from command line.
+~~The runnable script `g2p-seq2seq` is installed in  `/usr/local/bin` folder by default (you can adjust it with `setup.py` options if needed) . You need to make sure you have this folder included in your `PATH` so you can run this script from command line.~~
 
 ## Running G2P
 
