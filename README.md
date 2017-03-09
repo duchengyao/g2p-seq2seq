@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/cmusphinx/g2p-seq2seq.svg?branch=master)](https://travis-ci.org/cmusphinx/g2p-seq2seq)
+forked from [cmusphinx/g2p-seq2seq](https://github.com/cmusphinx/g2p-seq2seq)
 
 # Sequence-to-Sequence G2P toolkit
 
@@ -23,34 +23,22 @@ You can install tensorflow with the following command:
 sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.0-cp27-none-linux_x86_64.whl
 ```
 
-~~The package itself uses setuptools, so you can follow standard installation process:~~
-
-```
-~~sudo python setup.py install~~
-```
-
 You can also run the tests
 
 ```
 python setup.py test
 ```
 
-~~The runnable script `g2p-seq2seq` is installed in  `/usr/local/bin` folder by default (you can adjust it with `setup.py` options if needed) . You need to make sure you have this folder included in your `PATH` so you can run this script from command line.~~
-
 ## Running G2P
 
 A pretrained model 2-layer LSTM with 512 hidden units is [available for download on cmusphinx website](https://sourceforge.net/projects/cmusphinx/files/G2P%20Models/g2p-seq2seq-cmudict.tar.gz/download).
 Unpack the model after download. The model is trained on [CMU English dictionary](http://github.com/cmusphinx/cmudict)
 
-```
-wget -O g2p-seq2seq-cmudict.tar.gz https://sourceforge.net/projects/cmusphinx/files/G2P%20Models/g2p-seq2seq-cmudict.tar.gz/download 
-tar xf g2p-seq2seq-cmudict.tar.gz
-```
 
 The easiest way to check how the tool works is to run it the interactive mode and type the words
 
 ```
-$ g2p-seq2seq --interactive --model g2p-seq2seq-cmudict
+$ python app.py --interactive --model models/g2p-seq2seq-cmudict
 Creating 2 layers of 512 units.
 Reading model parameters from g2p-seq2seq-cmudict
 > hello
@@ -61,7 +49,7 @@ HH EH L OW
 To generate pronunciations for an English word list with a trained model, run
 
 ```
-  g2p-seq2seq --decode your_wordlist --model model_folder_path
+  python app.py --decode your_wordlist --model model_folder_path
 
 ```
 The wordlist is a text file with one word per line
@@ -70,7 +58,7 @@ The wordlist is a text file with one word per line
 To evaluate Word Error Rate of the trained model, run
 
 ```
-  g2p-seq2seq --evaluate your_test_dictionary --model model_folder_path
+  python app.py --evaluate your_test_dictionary --model model_folder_path
 
 ```
 The test dictionary should be a dictionary in standard format.
@@ -82,7 +70,7 @@ To train G2P you need a dictionary (word and phone sequence per line).
 See an [example dictionary](http://github.com/cmusphinx/cmudict)
 
 ```
-  g2p-seq2seq --train train_dictionary.dic --model model_folder_path
+  python app.py --train train_dictionary.dic --model model_folder_path
 ```
 
 You can set up maximum training steps:
@@ -113,7 +101,7 @@ You can manually point out Development and Test datasets:
 
 If you need to continue train saved model just launch the following code:
 ```
-  g2p-seq2seq --train train_dictionary.dic --model model_folder_path
+  python app.py: --train train_dictionary.dic --model model_folder_path
 ```
 
 And, if you want to start training from scratch:

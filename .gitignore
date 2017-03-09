@@ -3,7 +3,6 @@
 *.egg-info
 build
 dist
-model/
 models/
 .idea/
 __pycache__
