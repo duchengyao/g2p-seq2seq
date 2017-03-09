@@ -11,23 +11,15 @@ This implementation is based on python
 [TensorFlow](https://www.tensorflow.org/tutorials/seq2seq/),
 which allows an efficient training on both CPU and GPU.
 
-## Installation
+## Requirements
 
-The tool requires TensorFlow at least version 1.0.0. Please see the installation
-[guide](https://www.tensorflow.org/install/)
-for details
+The tool requires TensorFlow at least version 1.0.0.
 
-You can install tensorflow with the following command:
+## Quick Start
 
-```
-sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.0-cp27-none-linux_x86_64.whl
-```
-
-You can also run the tests
-
-```
-python setup.py test
-```
+* make model dir `mkdir models`
+* train: `python app.py --train dicts/cmudict.dict --model models/cmudict`
+* G2P: `python app.py --interactive --model models/cmudict`
 
 ## Running G2P
 
