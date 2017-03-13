@@ -85,7 +85,9 @@ class G2PModel(object):
       data_utils.load_vocabulary(os.path.join(self.model_dir, "vocab.phoneme"),
                                  reverse=True)
 
-    self.session = tf.Session()
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+    self.session = tf.Session(config=config)
 
     # Restore model.
     print("Creating %d layers of %d units." % (num_layers, size))
